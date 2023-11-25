@@ -9,9 +9,7 @@ tasks.jar {
                 "Main-Class" to "org.example.Main"
         )
     }
-//    from(configurations.runtimeClasspath.get().map { if (it.isDirectory) it else zipTree(it) })
-//    archiveClassifier.set("all")
-//    from(configurations.all.map { it.listFiles()?.toList() ?: zipTree(it) })
+    from(configurations.runtimeClasspath.get().map { if (it.isDirectory) it else zipTree(it) })
 
 }
 tasks {
@@ -55,8 +53,6 @@ repositories {
 dependencies {
     implementation("org.apache.logging.log4j:log4j-api:2.21.1")
     runtimeOnly("org.apache.logging.log4j:log4j-core:2.21.1")
-    testImplementation(platform("org.junit:junit-bom:5.9.2"))
-    testImplementation("org.junit.jupiter:junit-jupiter:5.9.2")
     implementation("com.alibaba:fastjson:2.0.32")
 }
 tasks.test {
